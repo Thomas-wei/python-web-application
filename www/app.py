@@ -9,6 +9,8 @@ def index(request):
     # 必须加content_type，否则就会自动变成下载
     return web.Response(body=b'<h1>Awesome1</h1>', content_type='text/html', charset='utf-8')
 
+# coroutine（协程）是一种函数类型，与Generator类似，不同的是yield写法，Generator：yield XXX;coroutine: xxx = (yield);
+# coroutine（协程）函数需要调用next(),然后通过send(xxx)传入值
 @asyncio.coroutine
 async def init(): # 协程 不能直接运行，要放到loop中运行
     # web.Application的loop参数弃用了
